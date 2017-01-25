@@ -12,8 +12,13 @@ export const ImageGallery = (props) => {
         })}
       </select>
       <div style={{ width: '110%', margin: '0 auto' }}>
-        {props.curiosityPhotos.map((photo, idx) => {
-          return <img key={idx} src={photo.img_src} width='20%' style={{ display: 'inline-block', margin: '5px' }}/>
+        {props.filteredPhotos.map((photo, idx) => {
+          return (
+            <span style={{ display: 'inline-block', width: '25%', margin: '5px' }}>
+              <img key={idx} src={photo.img_src} width='100%' style={{ display: 'inline-block' }}/>
+              <div>{new Date(photo.earth_date).toDateString()}</div>
+            </span>
+          )
         })}
       </div>
       <h1>Opportunity: Panoramic Camera </h1>

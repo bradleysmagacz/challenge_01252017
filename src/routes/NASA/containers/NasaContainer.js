@@ -13,7 +13,8 @@ const mapStateToProps = (state) => ({
   imageOfTheDay : state.nasa.imageOfTheDay,
   curiosityPhotos : state.nasa.curiosityPhotos,
   opportunityPhotos : state.nasa.opportunityPhotos,
-  curiosityFilter : state.nasa.curiosityFilters
+  curiosityFilters : state.nasa.curiosityFilters,
+  filteredPhotos: state.nasa.filteredPhotos
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)

@@ -38,7 +38,7 @@ export function setCuriosityPhotos (photos = []) {
 
 export function setCuriosityFilters (photos = []) {
   return {
-    type    : SET_ROVER_CURIOSITY_PHOTOS,
+    type    : SET_CURIOSITY_FILTERS,
     payload : photos
   }
 }
@@ -98,14 +98,17 @@ const ACTION_HANDLERS = {
     curiosityFilters : action.payload
   }),
   [SET_CURIOSITY_PHOTO_FILTER] : (state, action) => Object.assign({}, state, {
-    curiosityPhotos: state.curiosityPhotos.filter(photo => {
+    filteredPhotos: state.curiosityPhotos.filter(photo => {
       if (photo.camera) {
         return photo.camera.name === action.payload
       }
     })
   }),
   [SET_IMAGE_OF_THE_DAY]    : (state, action) => Object.assign({}, state, { imageOfTheDay: action.payload }),
-  [SET_ROVER_CURIOSITY_PHOTOS] : (state, action) => Object.assign({}, state, { curiosityPhotos: action.payload }),
+  [SET_ROVER_CURIOSITY_PHOTOS] : (state, action) => Object.assign({}, state, {
+    curiosityPhotos: action.payload,
+    filteredPhotos: action.payload
+  }),
   [SET_ROVER_OPPORTUNITY_PHOTOS] : (state, action) => Object.assign({}, state, { opportunityPhotos: action.payload })
 }
 
@@ -120,7 +123,8 @@ const initialState = {
   imageOfTheDay: {},
   curiosityPhotos: [],
   opportunityPhotos: [],
-  curiosityFilters: []
+  curiosityFilters: [],
+  filteredPhotos: []
 }
 export default function nasaReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]

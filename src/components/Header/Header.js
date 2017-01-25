@@ -5,10 +5,10 @@ import './Header.scss'
 export const Header = () => (
   <div>
     <h1>The Red Planet Rovers</h1>
-    <Link to='/nasa' activeClassName='route--active'>
+    <Link to='/nasa/home' activeClassName='route--active'>
       Image Of The Day
     </Link>
-    { '.' }
+    { '     |     ' }
     <Link to='/nasa/gallery' activeClassName='route--active'>
       Image Gallery
     </Link>

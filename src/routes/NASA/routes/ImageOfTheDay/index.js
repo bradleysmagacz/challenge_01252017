@@ -1,4 +1,5 @@
 export default (store) => ({
+  path: 'home',
   getComponent (nextState, cb) {
     require.ensure([], (require) => {
       const ImageOfTheDay = require('../../components/ImageOfTheDay').default
