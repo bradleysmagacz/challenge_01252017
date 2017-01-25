@@ -11,7 +11,7 @@ export const ImageGallery = (props) => {
           return <option value={name} key={name}>{name}</option>
         })}
       </select>
-      <div style={{ width: '110%', margin: '0 auto' }}>
+      <div style={{ width: '100%', margin: '0 auto' }}>
         {props.filteredPhotos.map((photo, idx) => {
           return (
             <span style={{ display: 'inline-block', width: '25%', margin: '5px' }}>
